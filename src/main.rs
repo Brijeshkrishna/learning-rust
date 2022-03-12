@@ -1,13 +1,13 @@
 
 fn main(){
-    let mut hex:String  = String::new(); 
+    let mut name:String  = String::new(); 
     loop {
         println!("Enter your name : ");
-        std::io::stdin().read_line(&mut hex).unwrap();
-        if hex.eq("exit") {
+        std::io::stdin().read_line(&mut name).unwrap();
+        if name.eq("exit") {
             break;
         }
-        println!("Hello 👋 {} ",hex);
+        println!("Hello 👋 {} ",name);
 
     }
 }
