@@ -1,13 +1,25 @@
+use std::io;
+use std::io::Write;
 
-fn main(){
-    let mut name:String  = String::new(); 
+fn main() {
+
+    let mut strings = String::from("hello, ");
+    let mut name: String = String::new();
     loop {
-        println!("Enter your name : ");
-        std::io::stdin().read_line(&mut name).unwrap();
-        if name.eq("exit") {
+		
+        print!("What your name : ");
+        io::stdout().flush().unwrap();
+        io::stdin()
+            .read_line(&mut name)
+            .expect("Unable to read input");
+
+        if name.trim().eq("exit") {
             break;
         }
-        println!("Hello 👋 {} ",name);
-
+        strings.push_str(&name.trim());
+		strings.push_str(" 👋");
+        println!("{}", strings);
+		strings.clear();
+		name.clear();
     }
 }
